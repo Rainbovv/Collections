@@ -23,6 +23,7 @@ public class Main {
 
     
     static void printList(List<String> list) {
+        
         for (String purchase: list) {
             System.out.println(purchase);
         }
@@ -30,6 +31,7 @@ public class Main {
 
     
     static ArrayList<String> getListOfPurchases(List<String> listOfWishes, List<String> listOfOffers) {
+        
         ArrayList<String> listOfPurchases = new ArrayList<>();
 
         for (String wishAndQuantity : listOfWishes) {
