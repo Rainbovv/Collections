@@ -1,54 +1,33 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // CLIENT WISHES
-        List<String> listOfWishes = new ArrayList<>(Arrays.asList("Spaghetti,2",
-                                                                  "Pepper,5",
-                                                                  "Sugar,1"));
 
-        // STORE OFFERS
-        List<String> listOfOffers = new ArrayList<>(Arrays.asList("Spaghetti,10.00",
-                                                                  "Sugar,5.00",
-                                                                  "Water,2.50"));
+        ArrayList<String> devs = new ArrayList();
 
-        // CLIENT FULFILLED WISHES
-        List<String> listOfPurchases = getListOfPurchases(listOfWishes, listOfOffers);
+        // adding data to the list
+        devs.add("Johny");
+        devs.add("Valerya");
+        devs.add("Tatyana");
+        devs.add("Peter");
+        devs.add("Marry");
 
-
-        printList(listOfPurchases);
-    }
-
-    
-    static void printList(List<String> list) {
-        
-        for (String purchase: list) {
-            System.out.println(purchase);
+        // showing the initials
+        for (int i = 0; i < devs.size(); i++) {
+            System.out.printf("%d.   \"%c.\"%n",i + 1 , devs.get(i).charAt(0));
         }
-    }
 
-    
-    static ArrayList<String> getListOfPurchases(List<String> listOfWishes, List<String> listOfOffers) {
-        
-        ArrayList<String> listOfPurchases = new ArrayList<>();
+        // the longest name
+        int maxLength = 0;
 
-        for (String wishAndQuantity : listOfWishes) {
-
-            String wish = wishAndQuantity.substring(0, wishAndQuantity.indexOf(','));
-            int quantity = Integer.parseInt(wishAndQuantity.substring(wishAndQuantity.indexOf(',') + 1));
-
-            for (String offerAndPrice : listOfOffers) {
-
-                String offer = offerAndPrice.substring(0, offerAndPrice.indexOf(','));
-                double price = Double.parseDouble(offerAndPrice.substring(offerAndPrice.indexOf(',') + 1));
-
-                if (wish.equals(offer)) {
-                    listOfPurchases.add(wish + ',' + quantity + '=' + (quantity * price));
-                }
-            }
+        for (String dev: devs) {
+            if (dev.length() > maxLength) maxLength = dev.length();
         }
-        return listOfPurchases;
+
+        // swap values
+        String temp;
+        temp = devs.get(devs.size() - 1);
+        devs.set(devs.size() - 1, devs.get(0));
+        devs.set(0, temp);
     }
 }
