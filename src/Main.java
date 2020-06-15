@@ -11,8 +11,8 @@ public class Main {
 
         // STORE OFFERS
         List<String> listOfOffers = new ArrayList<>(Arrays.asList("Spaghetti,10.00",
-                                                                 "Sugar,5.00",
-                                                                 "Water,2.50"));
+                                                                  "Sugar,5.00",
+                                                                  "Water,2.50"));
 
         // CLIENT FULFILLED WISHES
         List<String> listOfPurchases = getListOfPurchases(listOfWishes, listOfOffers);
@@ -21,12 +21,14 @@ public class Main {
         printList(listOfPurchases);
     }
 
+    
     static void printList(List<String> list) {
         for (String purchase: list) {
             System.out.println(purchase);
         }
     }
 
+    
     static ArrayList<String> getListOfPurchases(List<String> listOfWishes, List<String> listOfOffers) {
         ArrayList<String> listOfPurchases = new ArrayList<>();
 
